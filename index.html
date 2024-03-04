@@ -110,6 +110,7 @@ function updateTimer() {
   if (seconds === 0 && minutes === 0 && hours === 0) {
     clearInterval(timerInterval);
     timerRunning = false;
+    document.title = "Timer Ended!";
     alert('Timer Ended!');
     return;
   }
@@ -125,6 +126,7 @@ function updateTimer() {
     }
   }
   updateDisplay();
+  updateTitle();
 }
 
 function updateDisplay() {
@@ -156,6 +158,10 @@ function endTimer() {
   minutes = parseInt(document.getElementById("minutes").value);
   seconds = parseInt(document.getElementById("seconds").value);
   updateDisplay();
+}
+
+function updateTitle() {
+  document.title = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
 }
 </script>
 </body>
